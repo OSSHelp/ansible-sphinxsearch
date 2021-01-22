@@ -1,0 +1,23 @@
+---
+- name: adding PPA
+  apt_repository:
+    repo: 'ppa:builds/sphinxsearch-rel22'
+  when: install_from_ppa and ansible_distribution_release == 'xenial'
+
+- name: package installation
+  apt:
+    name: "{{ sphinx_packages }}"
+    update_cache: true
+    cache_valid_time: 86400
+
+- name: enableing deamon
+  lineinfile:
+    path: /etc/default/sphinxsearch
+    regexp: '^START='
+    line: START=yes
+
+- name: service sphinxsearch checking
+  service:
+    name: sphinxsearch
+    enabled: yes
+    state: started

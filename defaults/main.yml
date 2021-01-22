@@ -1,0 +1,16 @@
+---
+sphinxsearch_setup: full
+spinxsearch_initial_setup: false
+
+sphinx_packages:
+  - sphinxsearch
+
+sphinxsearch_conf_location: '/etc/sphinxsearch/sphinx.conf'
+sphinx_configure: true
+install_from_ppa: false
+
+sphinxsearch_templates_dir: '/usr/local/osshelp'
+sphinxsearch_data_dir: "/var/lib/sphinxsearch"
+
+sphinxsearch_user: sphinxsearch
+sphinxsearch_group: root

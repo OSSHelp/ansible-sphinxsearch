@@ -1,0 +1,7 @@
+---
+- name: generating sphinxsearch configuration
+  template:
+    src: sphinx_conf.j2
+    dest: "{{ sphinxsearch_conf_location }}"
+  notify: restart sphinxsearch service
+  when: sphinx_configure

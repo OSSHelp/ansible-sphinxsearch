@@ -1,0 +1,9 @@
+---
+- name: restart sphinxsearch service
+  service:
+    name: sphinxsearch
+    state: restarted
+
+- name: reload sphinxsearch unit
+  systemd:
+    daemon_reload: yes

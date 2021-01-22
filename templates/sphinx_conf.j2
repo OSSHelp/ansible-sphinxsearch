@@ -1,0 +1,11 @@
+{% for section in searchd_params %}
+{{ section.name }}
+{
+{% for key, value in section.items() | sort %}
+{% if key != 'name' %}
+  {{ key }} = {{ value }}
+{% endif %}
+{% endfor %}
+}
+
+{% endfor %}

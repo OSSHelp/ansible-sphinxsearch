@@ -1,0 +1,12 @@
+#!/bin/bash
+
+sphinxsearch_data_dir="{{ sphinxsearch_data_dir }}"
+sphinxsearch_user="{{ sphinxsearch_user }}"
+sphinxsearch_group="{{ sphinxsearch_group }}"
+
+test -d "${sphinxsearch_data_dir}" || {
+  mkdir -pv "${sphinxsearch_data_dir}" && \
+    chmod 755 "${sphinxsearch_data_dir}" && \
+      chown "${sphinxsearch_user}:${sphinxsearch_group}" "${sphinxsearch_data_dir}"
+}
+

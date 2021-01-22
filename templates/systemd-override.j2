@@ -1,0 +1,7 @@
+[Service]
+{% if ansible_distribution_release == 'bionic' or ansible_distribution_release == 'focal' %}
+ExecStartPre=+{{ sphinxsearch_templates_dir }}/sphinxsearch/initial-setup
+{% elif ansible_distribution_release == 'xenial' %}
+PermissionsStartOnly=true
+ExecStartPre={{ sphinxsearch_templates_dir }}/sphinxsearch/initial-setup
+{% endif %}
